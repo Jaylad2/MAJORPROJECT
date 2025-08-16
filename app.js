@@ -99,10 +99,7 @@ app.get('/', (req, res) => {
   res.redirect('/listings');
 });
 
-// Then your wildcard 404 handler
-app.all("*",(req,res,next)=>{
-    next(new ExpressError(404,"Page not found" ));
-});
+
 
 
 
@@ -126,8 +123,8 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
     // res.status(statusCode).send(message);
 })
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-    console.log(`server is listening on port ${port}`);
+app.listen(8080, () => {
+    console.log("server is listening on port 8080");
 });
+
 
